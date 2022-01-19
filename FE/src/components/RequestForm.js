@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-
+import { useAuth } from "../context/auth";
+import { addCleaningRequest } from "../lib/api";
 function Request() {
+  const auth = useAuth();
   const [request, setRequest] = useState({
     id: "",
     type: "",
@@ -18,11 +20,11 @@ function Request() {
       ...request,
       [event.target.name]: value,
     });
-    console.log(setRequest);
   }
 
-  const addNewPet = async (event) => {
-    const formData = new FormData();
+  const addNewRequest = async (event) => {
+    const authToken = auth.token.data ? auth.token.data.token : auth.token;
+    event.preventDefault();
 
     setRequest({
       id: "",
@@ -34,11 +36,14 @@ function Request() {
       windows: "",
       fridge: "",
     });
+
+    const requestAdded = await addCleaningRequest(Request, authToken);
+    alert(" added successfully");
   };
 
   return (
     <div>
-      <form onSubmit={addNewPet} className="AddPetPage">
+      <form onSubmit={addNewRequest} className="AddPetPage">
         <h3 className="addPetText">Request a Cleaner</h3>
         <label>
           Type of House
