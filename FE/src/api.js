@@ -1,7 +1,5 @@
 import axios from "axios";
 
-const BaseUrl = 'http://localhost:5500';
-
 // ------- users-api ------- //
 
 //user - addUser
@@ -13,7 +11,7 @@ export async function addUser(signUpPrivateName, signUpLastName, signUpEmail, Si
         "email": signUpEmail,
         "password": SignInPassword
     }
-    const response = await axios.post(`${BaseUrl}/users/signUp`, { ...newUserFE });
+    const response = await axios.post(`https://cleaner-app-api.herokuapp.com/users/signup`, { ...newUserFE });
     return response.data
 }
 
@@ -23,6 +21,6 @@ export async function loginUser(loggedInPassword, loggedInEmail) {
         "email": loggedInEmail,
         "password": loggedInPassword,
     }
-    const response = await axios.post(`${BaseUrl}/users/login`, { ...LoginData });
+    const response = await axios.post(`https://cleaner-app-api.herokuapp.com/users/login`, { ...LoginData });
     return response.data
 }
