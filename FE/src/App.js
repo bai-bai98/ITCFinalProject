@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Request from "./components/RequestForm";
 import Home from './components/home/Home';
 import Posts from './components/posts/Posts';
+import EditPost from './components/posts/EditPost';
 
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/request" element={<Request />}></Route>
         <Route path="/Posts" element={<Posts />}></Route>
+        <Route path="/Edit" element={<EditPost/>}></Route>
       </Routes>
       {<LoginSignUpModal show={showLoginModal} setShowLoginModal={setShowLoginModal} setUserAuthorization={setUserAuthorization} userAuthorization={userAuthorization} />}
     </div>

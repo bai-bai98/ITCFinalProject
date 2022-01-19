@@ -10,7 +10,7 @@ export default function NavBar(props) {
             <Navbar bg="dark" variant="dark">
                 <Container>
                     <Navbar.Brand>Cleanup</Navbar.Brand>
-                    <Nav className="nav"> 
+                    <Nav className="nav">
                         <Nav.Link as={Link} to="/">Home</Nav.Link>
                         <Nav.Link as={Link} to="/request">Request a Cleanup</Nav.Link>
                         <Nav.Link as={Link} to="/Posts">Posts</Nav.Link>
