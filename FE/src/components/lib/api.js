@@ -25,3 +25,24 @@ export async function addCleaningRequest(request, token) {
   );
   return response.data;
 }
+
+export async function addUser(signUpPrivateName, signUpLastName, signUpEmail, SignUpPhoneNumber, SignInPassword) {
+  const newUserFE = {
+    "firstName": signUpPrivateName,
+    "lastName": signUpLastName,
+    "phoneNumber": SignUpPhoneNumber,
+    "email": signUpEmail,
+    "password": SignInPassword
+  }
+  const response = await axios.post(`https://cleaner-app-api.herokuapp.com/users/signup`, { ...newUserFE });
+  return response.data
+}
+
+export async function loginUser(loggedInPassword, loggedInEmail) {
+  const LoginData = {
+    "email": loggedInEmail,
+    "password": loggedInPassword,
+  }
+  const response = await axios.post(`https://cleaner-app-api.herokuapp.com/users/login`, { ...LoginData });
+  return response.data
+}

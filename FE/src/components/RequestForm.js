@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/auth";
-import { addCleaningRequest } from "../lib/api";
+import { addCleaningRequest } from "./lib/api"
 function Request() {
   const auth = useAuth();
   const [request, setRequest] = useState({

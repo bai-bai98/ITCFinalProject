@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal, Button, ButtonGroup, Form } from 'react-bootstrap'
 import LoginForm from './Forms/LoginForm';
 import SignUp from './Forms/SignUp';
-import { addUser, loginUser } from '../api'
+import { addUser, loginUser } from './lib/api'
 
 
 export default function LoginModal(props) {
