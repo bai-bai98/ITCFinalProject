@@ -1,0 +1,23 @@
+*:focus {
+  outline: none;
+  box-shadow: none !important;
+  -webkit-appearance: none;
+}
+
+.link {
+  color: black;
+  margin: 0px 10px;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.login {
+  justify-self: flex-end;
+  align-self: flex-end;
+  margin-left: auto;
+}
