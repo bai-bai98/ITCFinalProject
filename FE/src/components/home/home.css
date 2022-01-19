@@ -1,0 +1,19 @@
+.homeContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.homeWelcomeMessage {
+  padding: 10px;
+  margin-top: 2.5%;
+  width: 75%;
+  border-radius: 15px;
+  background: rgb(218, 253, 250);
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .homeWelcomeMessage {
+    width: 90%;
+  }
+}
