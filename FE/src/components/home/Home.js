@@ -4,8 +4,8 @@ export default function Home() {
 
     return <div className="homeContainer">
         <div className="homeWelcomeMessage">
-            <h1>Welcome!</h1>
-            <p>Some generic text...</p>
+            <h1>Welcome to Cleanup!</h1>
+            <p>Cleanup connects between cleaners and lazy people. So, what are u waiting for?</p>
         </div>
     </div>;
 }

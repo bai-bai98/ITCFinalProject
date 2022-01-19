@@ -32,7 +32,9 @@ export async function addUser(signUpPrivateName, signUpLastName, signUpEmail, Si
     "lastName": signUpLastName,
     "phoneNumber": SignUpPhoneNumber,
     "email": signUpEmail,
-    "password": SignInPassword
+    "password": SignInPassword,
+    "cleaner": false,
+    "date": Date.now()
   }
   const response = await axios.post(`https://cleaner-app-api.herokuapp.com/users/signup`, { ...newUserFE });
   return response.data
