@@ -57,16 +57,6 @@ export default function SignUp(props) {
                 <br></br>
                 {registrationMessage && registrationMessage}
             </Form.Group>
-            <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-                <Form.Label column sm="2">
-                    Password:
-                </Form.Label>
-                <Col sm="10">
-                    <Form.Control type="password" placeholder="Password confirmation" value={ValdiateSignUpPassword} onChange={(event) => { setValdiateSignUpPassword(event.target.value) }} />
-                </Col>
-                <br></br>
-                {registrationMessage && registrationMessage}
-            </Form.Group>
         </div>
     )
 }

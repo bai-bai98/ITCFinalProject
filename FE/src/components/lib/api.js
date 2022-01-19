@@ -1,4 +1,5 @@
 import axios from "axios";
+import { v4 as uuidv4 } from 'uuid';
 
 const BaseUrl = "https://cleaner-app-api.herokuapp.com/posts";
 function getAuthConfig(token) {
@@ -28,13 +29,14 @@ export async function addCleaningRequest(request, token) {
 
 export async function addUser(signUpPrivateName, signUpLastName, signUpEmail, SignUpPhoneNumber, SignInPassword) {
   const newUserFE = {
+    "userID": uuidv4(),
     "firstName": signUpPrivateName,
     "lastName": signUpLastName,
     "phoneNumber": SignUpPhoneNumber,
     "email": signUpEmail,
     "password": SignInPassword,
     "cleaner": false,
-    "date": Date.now()
+    "createdDate": Date.now().toString()
   }
   const response = await axios.post(`https://cleaner-app-api.herokuapp.com/users/signup`, { ...newUserFE });
   return response.data
