@@ -11,16 +11,19 @@ import Posts from './components/posts/Posts';
 
 export default function App() {
   const [showLoginModal, setShowLoginModal] = useState(false)
+  const [userAuthorization, setUserAuthorization] = useState("guest")
+  const [userData, setUserData] = useState(false)
+
 
   return (
     <div>
-      <NavBar setShowLoginModal={setShowLoginModal} />
+      <NavBar setShowLoginModal={setShowLoginModal} setUserAuthorization={setUserAuthorization} userAuthorization={userAuthorization} />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/request" element={<Request />}></Route>
         <Route path="/Posts" element={<Posts />}></Route>
       </Routes>
-      {<LoginSignUpModal show={showLoginModal} setShowLoginModal={setShowLoginModal} setUserAuthorization={3} setUserData={4} />}
+      {<LoginSignUpModal show={showLoginModal} setShowLoginModal={setShowLoginModal} setUserAuthorization={setUserAuthorization} userAuthorization={userAuthorization} />}
     </div>
   )
 }
