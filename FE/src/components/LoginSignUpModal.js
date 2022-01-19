@@ -7,8 +7,7 @@ import { addUser, loginUser } from './lib/api'
 
 export default function LoginModal(props) {
 
-    let { show, setShowLoginModal, setUserAuthorization, setUserData } = props
-
+    let { show, setShowLoginModal, setUserAuthorization } = props
 
     const handleClose = () => {
         setShowLoginModal(false)
@@ -40,15 +39,14 @@ export default function LoginModal(props) {
             } else if (!loggedInEmail.match(/^\S+@\S+\.\S+$/)) {
                 setErrorMessageReLoginInput("Email address is not valid")
             } else {
-                const authenticatedUser = await loginUser(loggedInPassword, loggedInEmail)
-                if (authenticatedUser[0].authorization === "member" || authenticatedUser[0].authorization === "admin") {
-                    sessionStorage.setItem('token', authenticatedUser[1]);
-                    setUserData(authenticatedUser[0])
-                    setUserAuthorization(authenticatedUser[0].authorization)
-                    handleClose()
-                    setLoggedInPassword("")
-                    setLoggedInEmail("")
-                }
+                const tokenFromServer = await loginUser(loggedInPassword, loggedInEmail)
+                localStorage.setItem('token', tokenFromServer);
+                setUserAuthorization("member");
+                // setUserData(authenticatedUser[0])
+                // setUserAuthorization(authenticatedUser[0].authorization)
+                handleClose()
+                setLoggedInPassword("")
+                setLoggedInEmail("")
             }
         } catch (e) {
             if (e.message === "Network Error") {
@@ -78,16 +76,11 @@ export default function LoginModal(props) {
             } else if (SignInPassword !== ValdiateSignUpPassword) {
                 setRegistrationMessage("Password confirmation must match Password")
             } else {
-                const message = await addUser(signUpPrivateName, signUpLastName, signUpEmail, SignUpPhoneNumber, SignInPassword)
-                setRegistrationMessage(message)
-                console.log("1")
-                if (message === "Registration completed successfully") {
-                    const authenticatedUser = await loginUser(SignInPassword, signUpEmail)
-                    sessionStorage.setItem('token', authenticatedUser[1]);
-                    setUserData(authenticatedUser[0])
-                    setUserAuthorization(authenticatedUser[0].authorization);
-                    handleClose()
-                }
+                const token = await addUser(signUpPrivateName, signUpLastName, signUpEmail, SignUpPhoneNumber, SignInPassword)
+                localStorage.setItem('token', token);
+                // setUserData(authenticatedUser[0])
+                setUserAuthorization("member");
+                handleClose()
             }
         }
         catch (e) {
