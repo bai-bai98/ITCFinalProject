@@ -12,7 +12,7 @@ export default function NavBar(props) {
                     <Navbar.Brand>Cleanup</Navbar.Brand>
                     <Nav className="nav">
                         <Nav.Link as={Link} to="/">Home</Nav.Link>
-                        <Nav.Link as={Link} to="/request">request a cleanup</Nav.Link>
+                        <Nav.Link as={Link} to="/request">Request a Cleanup</Nav.Link>
                         <Nav.Link as={Link} to="/Posts">Posts</Nav.Link>
                         <Button variant="outline-primary" className="login" onClick={(e) => { setShowLoginModal(true) }}>SignUp/Login</Button>
                     </Nav>

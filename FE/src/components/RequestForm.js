@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { Button, Card, Container, Form, FormLabel, FormSelect } from "react-bootstrap";
 import { useAuth } from "../context/auth";
 import { addCleaningRequest } from "./lib/api"
+
 function Request() {
   const auth = useAuth();
   const [request, setRequest] = useState({
@@ -43,9 +45,12 @@ function Request() {
 
   return (
     <div>
-      <form onSubmit={addNewRequest} className="AddPetPage">
-        <h3 className="addPetText">Request a Cleaner</h3>
-        <label>
+      <Container className="formContainer">
+      <Card>
+      <Form onSubmit={addNewRequest}>
+          <h3 className="addPetText">Request a Cleaner</h3>
+          <Form.Group>
+        <Form.Label>
           Type of House
           <select
             className="inputField"
@@ -53,22 +58,26 @@ function Request() {
             onChange={handleChange}
             value={request.type}
           >
-            <option value="Adopted">House</option>
-            <option value="Fostered">Apartment</option>
-            <option value="Available">Duplex</option>
+            <option value="House">House</option>
+            <option value="Apartment">Apartment</option>
+            <option value="Duplex">Duplex</option>
           </select>
-        </label>
-        <label>
+          </Form.Label>
+          </Form.Group>
+          <Form.Group>
+        <Form.Label>
           Number of Bedrooms{" "}
           <input
             className="inputField"
-            type="text"
+            type="number"
             value={request.Bedrooms}
             name="Bedrooms"
             onChange={handleChange}
           />
-        </label>
-        <label>
+            </Form.Label>
+          </Form.Group>
+          <Form.Group>
+        <Form.Label>
           Number of Bathrooms
           <input
             className="inputField"
@@ -77,8 +86,10 @@ function Request() {
             name="bathrooms"
             onChange={handleChange}
           />
-        </label>
-        <label>
+          </Form.Label>
+          </Form.Group>
+          <Form.Group>
+        <Form.Label>
           Do you have cleaning supplies
           <select
             className="inputField"
@@ -89,8 +100,10 @@ function Request() {
             <option>yes</option>
             <option>no</option>
           </select>
-        </label>
-        <label>
+            </Form.Label>
+          </Form.Group>
+          <Form.Group>
+        <Form.Label>
           Clean Oven
           <select
             className="inputField"
@@ -101,8 +114,10 @@ function Request() {
             <option>yes</option>
             <option>no</option>
           </select>
-        </label>
-        <label>
+            </Form.Label>
+          </Form.Group>
+          <Form.Group>
+        <Form.Label>
           Clean Windows
           <select
             className="inputField"
@@ -113,8 +128,10 @@ function Request() {
             <option>yes</option>
             <option>no</option>
           </select>
-        </label>{" "}
-        <label>
+            </Form.Label>{" "}
+          </Form.Group>
+          <Form.Group>
+        <Form.Label>
           Clean Fridge
           <select
             className="inputField"
@@ -125,9 +142,12 @@ function Request() {
             <option>yes</option>
             <option>no</option>
           </select>
-        </label>
-        <button className="addPetBtn">submit</button>
-      </form>
+            </Form.Label>
+          </Form.Group>
+        <Button className="add"> Submit</Button>
+          </Form>
+          </Card>
+        </Container>
     </div>
   );
 }

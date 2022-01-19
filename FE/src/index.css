@@ -54,3 +54,14 @@ code {
   outline: none;
   background-color: transparent;
 }
+
+.formContainer {
+  justify-content: center;
+  width: 268px;
+  height: 48px;
+  border-radius: 6px;
+  border: 2px solid rgb(204, 204, 204);
+  margin: 3px;
+  outline: none;
+  background-color: transparent;
+}
